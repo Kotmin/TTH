@@ -1,8 +1,8 @@
 package com.kotmin.soldevelo.alertrules.config;
 
 import com.kotmin.soldevelo.alertrules.engine.AlertEngine;
+import com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngine;
 import com.kotmin.soldevelo.alertrules.engine.simple.SimpleAlertEngine;
-import com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngine;
 
 public class AlertEngineFactory {
 
