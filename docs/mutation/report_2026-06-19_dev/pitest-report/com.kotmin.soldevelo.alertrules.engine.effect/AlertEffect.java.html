@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>AlertEffect.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.kotmin.soldevelo.alertrules.engine.effect;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@FunctionalInterface</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public interface AlertEffect {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    void apply(AlertResult result);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    static AlertEffect append(String label) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_9'/>
+9
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_9'>2</a>
+<span>
+1. append : replaced return value with null for com/kotmin/soldevelo/alertrules/engine/effect/AlertEffect::append &rarr; KILLED<br/>
+2. lambda$append$0 : removed call to com/kotmin/soldevelo/alertrules/engine/effect/AlertResult::append &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return result -&#62; result.append(label);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    static AlertEffect removeLastCharacter() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_13'/>
+13
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_13'>1</a>
+<span>
+1. removeLastCharacter : replaced return value with null for com/kotmin/soldevelo/alertrules/engine/effect/AlertEffect::removeLastCharacter &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return AlertResult::removeLastCharacter;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    static AlertEffect noOp() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_17'/>
+17
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_17'>1</a>
+<span>
+1. noOp : replaced return value with null for com/kotmin/soldevelo/alertrules/engine/effect/AlertEffect::noOp &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return result -&#62; {};</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@19b89d4_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@19b89d4_9'>9</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_9'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>append<br/><b>Killed by : </b>com.kotmin.soldevelo.alertrules.engine.effect.AlertEffectTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.effect.AlertEffectTest]/[method:appendAddsLabel()]</span></span> replaced return value with null for com/kotmin/soldevelo/alertrules/engine/effect/AlertEffect::append &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>lambda$append$0<br/><b>Killed by : </b>com.kotmin.soldevelo.alertrules.engine.effect.AlertEffectTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.effect.AlertEffectTest]/[method:appendAddsLabel()]</span></span> removed call to com/kotmin/soldevelo/alertrules/engine/effect/AlertResult::append &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@19b89d4_13'>13</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_13'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>removeLastCharacter<br/><b>Killed by : </b>com.kotmin.soldevelo.alertrules.engine.effect.AlertEffectTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.effect.AlertEffectTest]/[method:removeLastCharacterTrimsTail()]</span></span> replaced return value with null for com/kotmin/soldevelo/alertrules/engine/effect/AlertEffect::removeLastCharacter &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@19b89d4_17'>17</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@19b89d4_17'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>noOp<br/><b>Killed by : </b>com.kotmin.soldevelo.alertrules.engine.effect.AlertEffectTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.effect.AlertEffectTest]/[method:noOpLeavesResultUnchanged()]</span></span> replaced return value with null for com/kotmin/soldevelo/alertrules/engine/effect/AlertEffect::noOp &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.kotmin.soldevelo.alertrules.engine.effect.AlertEffectTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.effect.AlertEffectTest]/[method:removeLastCharacterTrimsTail()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.effect.AlertEffectTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.effect.AlertEffectTest]/[method:appendAddsLabel()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.effect.AlertEffectTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.effect.AlertEffectTest]/[method:appendConcatenatesOnSubsequentCalls()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.rule.ConditionalAlertRuleTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.rule.ConditionalAlertRuleTest]/[method:applyDelegatesToEffect()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.app.AlertEngineProcessorAdapterTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.app.AlertEngineProcessorAdapterTest]/[method:emptyInputProducesEmptyOutput()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest]/[method:ruleOrderIsPreserved()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest]/[method:nonObviousMultipleOf3And7YieldsLowWarn()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.config.AlertEngineFactoryTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.config.AlertEngineFactoryTest]/[method:defaultEngineEvaluatesExtendedRules()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.config.AlertEngineFactoryTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.config.AlertEngineFactoryTest]/[method:defaultEngineEvaluatesBaseRules()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.app.AlertEngineProcessorAdapterTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.app.AlertEngineProcessorAdapterTest]/[method:adapterHandlesTrickyValuesInOrder()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.app.AlertEngineProcessorAdapterTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.app.AlertEngineProcessorAdapterTest]/[method:adapterProcessesListInInputOrder()] (9 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest]/[method:extendedRuleSetCombinesWarnRule()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest]/[method:zeroMatchesAllDivisibilityRules()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest]/[method:negativeMultipleOf3And7YieldsLowWarn()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest]/[method:negativeValueCanMatchRule()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest]/[method:largeValueDivisibleBy3And5YieldsLowAdvisory()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest]/[method:multipleOfAll3RulesThatIsNot105YieldsLowAdvisoryWarn()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngineTest]/[method:simpleAndStrategyEnginesProduceSameBaseOutput()] (1 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.effect.AlertEffectTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.effect.AlertEffectTest]/[method:noOpLeavesResultUnchanged()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.rule.ConditionalAlertRuleTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.rule.ConditionalAlertRuleTest]/[method:nullConditionThrows()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.rule.ConditionalAlertRuleTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.rule.ConditionalAlertRuleTest]/[method:matchesDelegatesToCondition()] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.15.0
+
+</body>
+</html>
