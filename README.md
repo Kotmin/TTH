@@ -177,3 +177,30 @@ It uses:
 ## Commit structure
 
 Each original task stage has its own commit following the [Conventional Commits](https://www.conventionalcommits.org/) specification. The git history shows the progression from a basic if-chain (Stage 1) through refactoring (Stage 2), extensible design (Stage 3), and the WARN rule demonstration (Stage 4).
+
+---
+
+## Interactive Gradle shell (Docker)
+
+To attach to a container with the project mounted and run Gradle commands manually:
+
+```bash
+docker run --rm -it \
+  -v "/home/kotmin/Coding/TTH:/app" \
+  -v "/tmp/gradle-cache:/root/.gradle" \
+  -w /app \
+  eclipse-temurin:17-jdk-jammy \
+  bash
+```
+
+Inside the container:
+
+```bash
+./gradlew test
+./gradlew run
+./gradlew run --args="--rules=extended --values=21,35,105"
+./gradlew spotlessCheck
+./gradlew pitest
+```
+
+The `/tmp/gradle-cache` volume reuses the dependency cache between sessions. Remove that line for a clean environment.
