@@ -15,22 +15,23 @@ jobs:
     continue-on-error: true
 
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - uses: actions/setup-java@v5
+      - uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
           cache: gradle
 
       - name: Run mutation tests
+        id: pitest
         run: ./gradlew pitest --no-daemon
 
       - name: Save report to repository
-        if: always()
+        if: steps.pitest.outcome == 'success'
         run: |
           BRANCH="${{ github.head_ref || github.ref_name }}"
           SAFE_BRANCH="${BRANCH//\//-}"
@@ -46,8 +47,8 @@ jobs:
           git push origin HEAD:"${BRANCH}"
 
       - name: Upload PIT report artifact
-        if: always()
-        uses: actions/upload-artifact@v7
+        if: steps.pitest.outcome == 'success'
+        uses: actions/upload-artifact@v4
         with:
           name: pitest-report
           path: build/reports/pitest/
