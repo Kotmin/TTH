@@ -77,4 +77,34 @@ class StrategyAlertEngineTest {
     void divisibilityRuleRejectsZeroDivisor() {
         assertThrows(IllegalArgumentException.class, () -> new DivisibilityAlertRule(0, "INVALID"));
     }
+
+    @Test
+    void nonObviousMultipleOf3And7YieldsLowWarn() {
+        var engine = new StrategyAlertEngine(EXTENDED_RULES);
+        assertEquals("LOWWARN", engine.evaluate(63));
+    }
+
+    @Test
+    void multipleOfAll3RulesThatIsNot105YieldsLowAdvisoryWarn() {
+        var engine = new StrategyAlertEngine(EXTENDED_RULES);
+        assertEquals("LOWADVISORYWARN", engine.evaluate(210));
+    }
+
+    @Test
+    void negativeMultipleOf3And7YieldsLowWarn() {
+        var engine = new StrategyAlertEngine(EXTENDED_RULES);
+        assertEquals("LOWWARN", engine.evaluate(-21));
+    }
+
+    @Test
+    void largePrimeReturnsItsStringValue() {
+        var engine = new StrategyAlertEngine(EXTENDED_RULES);
+        assertEquals(String.valueOf(Integer.MAX_VALUE), engine.evaluate(Integer.MAX_VALUE));
+    }
+
+    @Test
+    void largeValueDivisibleBy3And5YieldsLowAdvisory() {
+        var engine = new StrategyAlertEngine(EXTENDED_RULES);
+        assertEquals("LOWADVISORY", engine.evaluate(1_000_000_005));
+    }
 }
