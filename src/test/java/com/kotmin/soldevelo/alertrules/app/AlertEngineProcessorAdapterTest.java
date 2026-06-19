@@ -2,15 +2,18 @@ package com.kotmin.soldevelo.alertrules.app;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.kotmin.soldevelo.alertrules.engine.strategy.DivisibilityAlertRule;
-import com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngine;
+import com.kotmin.soldevelo.alertrules.engine.AlertCondition;
+import com.kotmin.soldevelo.alertrules.engine.AlertEffect;
+import com.kotmin.soldevelo.alertrules.engine.ConditionalAlertRule;
+import com.kotmin.soldevelo.alertrules.engine.StrategyAlertEngine;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class AlertEngineProcessorAdapterTest {
 
-    private final AlertEngineProcessorAdapter adapter = new AlertEngineProcessorAdapter(new StrategyAlertEngine(
-            List.of(new DivisibilityAlertRule(3, "LOW"), new DivisibilityAlertRule(5, "ADVISORY"))));
+    private final AlertEngineProcessorAdapter adapter = new AlertEngineProcessorAdapter(new StrategyAlertEngine(List.of(
+            new ConditionalAlertRule(AlertCondition.divisibleBy(3), AlertEffect.append("LOW")),
+            new ConditionalAlertRule(AlertCondition.divisibleBy(5), AlertEffect.append("ADVISORY")))));
 
     @Test
     void adapterProcessesListInInputOrder() {
@@ -27,9 +30,9 @@ class AlertEngineProcessorAdapterTest {
     @Test
     void adapterHandlesTrickyValuesInOrder() {
         var extended = new AlertEngineProcessorAdapter(new StrategyAlertEngine(List.of(
-                new DivisibilityAlertRule(3, "LOW"),
-                new DivisibilityAlertRule(5, "ADVISORY"),
-                new DivisibilityAlertRule(7, "WARN"))));
+                new ConditionalAlertRule(AlertCondition.divisibleBy(3), AlertEffect.append("LOW")),
+                new ConditionalAlertRule(AlertCondition.divisibleBy(5), AlertEffect.append("ADVISORY")),
+                new ConditionalAlertRule(AlertCondition.divisibleBy(7), AlertEffect.append("WARN")))));
         List<Integer> input = List.of(-21, 63, 210, Integer.MAX_VALUE);
         List<String> expected = List.of("LOWWARN", "LOWWARN", "LOWADVISORYWARN", String.valueOf(Integer.MAX_VALUE));
         assertEquals(expected, extended.process(input));
