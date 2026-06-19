@@ -38,7 +38,9 @@ jobs:
           cp -r build/reports/pitest "docs/mutation/report_${DATE}_${SAFE_BRANCH}"
           git config user.name "Kotmin"
           git config user.email "groovy.tech.cat@gmail.com"
+          git stash
           git pull --rebase origin "${BRANCH}"
+          git stash pop || true
           git add "docs/mutation/"
           git commit -m "docs(mutation): add PIT report ${DATE} ${SAFE_BRANCH}" || echo "nothing to commit"
           git push origin HEAD:"${BRANCH}"
