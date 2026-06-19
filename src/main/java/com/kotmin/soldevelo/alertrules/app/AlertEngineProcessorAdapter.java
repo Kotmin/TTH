@@ -1,7 +1,6 @@
 package com.kotmin.soldevelo.alertrules.app;
 
 import com.kotmin.soldevelo.alertrules.engine.AlertEngine;
-
 import java.util.List;
 
 public class AlertEngineProcessorAdapter implements MeasurementProcessor {

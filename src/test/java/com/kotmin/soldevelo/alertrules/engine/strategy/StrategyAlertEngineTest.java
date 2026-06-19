@@ -1,33 +1,31 @@
 package com.kotmin.soldevelo.alertrules.engine.strategy;
 
-import com.kotmin.soldevelo.alertrules.engine.simple.SimpleAlertEngine;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
+import com.kotmin.soldevelo.alertrules.engine.simple.SimpleAlertEngine;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class StrategyAlertEngineTest {
 
-    private static final List<AlertRule> BASE_RULES = List.of(
-            new DivisibilityAlertRule(3, "LOW"),
-            new DivisibilityAlertRule(5, "ADVISORY")
-    );
+    private static final List<AlertRule> BASE_RULES =
+            List.of(new DivisibilityAlertRule(3, "LOW"), new DivisibilityAlertRule(5, "ADVISORY"));
 
     private static final List<AlertRule> EXTENDED_RULES = List.of(
             new DivisibilityAlertRule(3, "LOW"),
             new DivisibilityAlertRule(5, "ADVISORY"),
-            new DivisibilityAlertRule(7, "WARN")
-    );
+            new DivisibilityAlertRule(7, "WARN"));
 
     @Test
     void simpleAndStrategyEnginesProduceSameBaseOutput() {
         var simple = new SimpleAlertEngine();
         var strategy = new StrategyAlertEngine(BASE_RULES);
-        List<String> simpleOut = IntStream.rangeClosed(1, 20).mapToObj(simple::evaluate).collect(Collectors.toList());
-        List<String> strategyOut = IntStream.rangeClosed(1, 20).mapToObj(strategy::evaluate).collect(Collectors.toList());
+        List<String> simpleOut =
+                IntStream.rangeClosed(1, 20).mapToObj(simple::evaluate).collect(Collectors.toList());
+        List<String> strategyOut =
+                IntStream.rangeClosed(1, 20).mapToObj(strategy::evaluate).collect(Collectors.toList());
         assertEquals(simpleOut, strategyOut);
     }
 
@@ -70,10 +68,8 @@ class StrategyAlertEngineTest {
 
     @Test
     void ruleOrderIsPreserved() {
-        var engine = new StrategyAlertEngine(List.of(
-                new DivisibilityAlertRule(7, "WARN"),
-                new DivisibilityAlertRule(3, "LOW")
-        ));
+        var engine = new StrategyAlertEngine(
+                List.of(new DivisibilityAlertRule(7, "WARN"), new DivisibilityAlertRule(3, "LOW")));
         assertEquals("WARNLOW", engine.evaluate(21));
     }
 

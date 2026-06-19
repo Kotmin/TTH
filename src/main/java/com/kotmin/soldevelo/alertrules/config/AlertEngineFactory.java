@@ -4,8 +4,6 @@ import com.kotmin.soldevelo.alertrules.engine.AlertEngine;
 import com.kotmin.soldevelo.alertrules.engine.simple.SimpleAlertEngine;
 import com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngine;
 
-import java.util.List;
-
 public class AlertEngineFactory {
 
     public static AlertEngine create(String engineName, String ruleSetName) {

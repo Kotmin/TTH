@@ -2,7 +2,6 @@ package com.kotmin.soldevelo.alertrules;
 
 import com.kotmin.soldevelo.alertrules.app.AlertEngineProcessorAdapter;
 import com.kotmin.soldevelo.alertrules.config.AlertEngineFactory;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;

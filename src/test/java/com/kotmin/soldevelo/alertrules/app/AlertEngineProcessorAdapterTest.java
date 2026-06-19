@@ -1,21 +1,16 @@
 package com.kotmin.soldevelo.alertrules.app;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.kotmin.soldevelo.alertrules.engine.strategy.DivisibilityAlertRule;
 import com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngine;
-import org.junit.jupiter.api.Test;
-
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 class AlertEngineProcessorAdapterTest {
 
-    private final AlertEngineProcessorAdapter adapter = new AlertEngineProcessorAdapter(
-            new StrategyAlertEngine(List.of(
-                    new DivisibilityAlertRule(3, "LOW"),
-                    new DivisibilityAlertRule(5, "ADVISORY")
-            ))
-    );
+    private final AlertEngineProcessorAdapter adapter = new AlertEngineProcessorAdapter(new StrategyAlertEngine(
+            List.of(new DivisibilityAlertRule(3, "LOW"), new DivisibilityAlertRule(5, "ADVISORY"))));
 
     @Test
     void adapterProcessesListInInputOrder() {
