@@ -49,6 +49,53 @@ Stage 3 of the task states: *"new alert rules will be added frequently — addin
 
 ---
 
+## Running from a terminal (Java 17 required locally)
+
+If Java 17 is installed, you can run without Docker using the Gradle wrapper:
+
+```
+$ ./gradlew run
+
+1
+2
+LOW
+4
+ADVISORY
+LOW
+7
+8
+LOW
+ADVISORY
+11
+LOW
+13
+14
+LOWADVISORY
+16
+17
+LOW
+19
+ADVISORY
+```
+
+```
+$ ./gradlew run --args="--rules=extended --values=21,35,105"
+
+LOWWARN
+ADVISORYWARN
+LOWADVISORYWARN
+```
+
+```
+$ ./gradlew run --args="--rules=extended --values=63,210,-21"
+
+LOWWARN
+LOWADVISORYWARN
+LOWWARN
+```
+
+---
+
 ## Local workflow (Docker only)
 
 All build, test, and run operations use Docker. No local Java or Gradle installation is required.
