@@ -1,4 +1,4 @@
-package com.kotmin.soldevelo.alertrules.engine;
+package com.kotmin.soldevelo.alertrules.engine.effect;
 
 @FunctionalInterface
 public interface AlertEffect {

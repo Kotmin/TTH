@@ -1,5 +1,8 @@
-package com.kotmin.soldevelo.alertrules.engine;
+package com.kotmin.soldevelo.alertrules.engine.rule;
 
+import com.kotmin.soldevelo.alertrules.engine.condition.AlertCondition;
+import com.kotmin.soldevelo.alertrules.engine.effect.AlertEffect;
+import com.kotmin.soldevelo.alertrules.engine.effect.AlertResult;
 import java.util.Objects;
 
 public final class ConditionalAlertRule implements AlertRule {

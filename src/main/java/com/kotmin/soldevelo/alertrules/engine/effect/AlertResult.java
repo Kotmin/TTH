@@ -1,4 +1,4 @@
-package com.kotmin.soldevelo.alertrules.engine;
+package com.kotmin.soldevelo.alertrules.engine.effect;
 
 public final class AlertResult {
 

@@ -1,5 +1,7 @@
 package com.kotmin.soldevelo.alertrules.engine;
 
+import com.kotmin.soldevelo.alertrules.engine.effect.AlertResult;
+import com.kotmin.soldevelo.alertrules.engine.rule.AlertRule;
 import java.util.List;
 import java.util.Objects;
 
