@@ -32,11 +32,10 @@ jobs:
       - name: Save report to repository
         if: always()
         run: |
-          mkdir -p docs/mutation
           BRANCH="${{ github.head_ref || github.ref_name }}"
           SAFE_BRANCH="${BRANCH//\//-}"
           DATE="$(date +%Y-%m-%d)"
-          cp build/reports/pitest/index.html "docs/mutation/report_${DATE}_${SAFE_BRANCH}.html"
+          cp -r build/reports/pitest "docs/mutation/report_${DATE}_${SAFE_BRANCH}"
           git config user.name "Kotmin"
           git config user.email "groovy.tech.cat@gmail.com"
           git pull --rebase origin "${BRANCH}"

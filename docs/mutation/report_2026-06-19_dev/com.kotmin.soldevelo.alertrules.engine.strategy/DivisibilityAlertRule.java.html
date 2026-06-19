@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>DivisibilityAlertRule.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.kotmin.soldevelo.alertrules.engine.strategy;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public final class DivisibilityAlertRule implements AlertRule {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final int divisor;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final String label;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public DivisibilityAlertRule(int divisor, String label) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_9'/>
+9
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_9'>1</a>
+<span>
+1. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (divisor == 0) throw new IllegalArgumentException(&#34;Divisor must not be zero&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.divisor = divisor;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.label = label;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean matches(int value) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_16'/>
+16
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_16'>3</a>
+<span>
+1. matches : negated conditional &rarr; KILLED<br/>
+2. matches : replaced boolean return with true for com/kotmin/soldevelo/alertrules/engine/strategy/DivisibilityAlertRule::matches &rarr; KILLED<br/>
+3. matches : Replaced integer modulus with multiplication &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return value % divisor == 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String label() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_21'/>
+21
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_21'>1</a>
+<span>
+1. label : replaced return value with &#34;&#34; for com/kotmin/soldevelo/alertrules/engine/strategy/DivisibilityAlertRule::label &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return label;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@30f842ca_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@30f842ca_9'>9</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_9'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:divisibilityRuleRejectsZeroDivisor()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@30f842ca_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>matches<br/><b>Killed by : </b>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:nonMatchingValueReturnsOriginalNumber()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>matches<br/><b>Killed by : </b>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:nonMatchingValueReturnsOriginalNumber()]</span></span> replaced boolean return with true for com/kotmin/soldevelo/alertrules/engine/strategy/DivisibilityAlertRule::matches &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>matches<br/><b>Killed by : </b>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:multipleOfAll3RulesThatIsNot105YieldsLowAdvisoryWarn()]</span></span> Replaced integer modulus with multiplication &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@30f842ca_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@30f842ca_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>label<br/><b>Killed by : </b>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:multipleOfAll3RulesThatIsNot105YieldsLowAdvisoryWarn()]</span></span> replaced return value with &#34;&#34; for com/kotmin/soldevelo/alertrules/engine/strategy/DivisibilityAlertRule::label &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:divisibilityRuleRejectsZeroDivisor()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.app.AlertEngineProcessorAdapterTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.app.AlertEngineProcessorAdapterTest]/[method:emptyInputProducesEmptyOutput()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:ruleOrderIsPreserved()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:nonObviousMultipleOf3And7YieldsLowWarn()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.config.AlertEngineFactoryTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.config.AlertEngineFactoryTest]/[method:defaultEngineEvaluatesExtendedRules()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.config.AlertEngineFactoryTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.config.AlertEngineFactoryTest]/[method:defaultEngineEvaluatesBaseRules()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.app.AlertEngineProcessorAdapterTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.app.AlertEngineProcessorAdapterTest]/[method:adapterHandlesTrickyValuesInOrder()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.app.AlertEngineProcessorAdapterTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.app.AlertEngineProcessorAdapterTest]/[method:adapterProcessesListInInputOrder()] (14 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:nonMatchingValueReturnsOriginalNumber()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:multipleOfAll3RulesThatIsNot105YieldsLowAdvisoryWarn()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:largePrimeReturnsItsStringValue()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:negativeMultipleOf3And7YieldsLowWarn()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:extendedRuleSetCombinesWarnRule()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:negativeValueCanMatchRule()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:zeroMatchesAllDivisibilityRules()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:largeValueDivisibleBy3And5YieldsLowAdvisory()] (0 ms)</li><li>com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest.[engine:junit-jupiter]/[class:com.kotmin.soldevelo.alertrules.engine.strategy.StrategyAlertEngineTest]/[method:simpleAndStrategyEnginesProduceSameBaseOutput()] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.15.0
+
+</body>
+</html>
