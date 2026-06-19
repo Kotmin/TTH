@@ -2,32 +2,69 @@
 
 ## 1. AI tools used
 
-I used Claude (claude.ai) throughout this task — for planning, designing the architecture, generating the PRD, structuring the commit sequence, and reviewing the implementation.
+- **GPT-5.5** (ChatGPT web GUI) — for initial domain modelling and event storming
+- **Claude Sonnet 4.6** (`claude-sonnet-4-6`, Claude Code CLI) — for implementation, guided by the spec
 
-## 2. One interaction that helped
+---
 
-**Prompt:**
+## 2. Workflow — Spec-Driven Development
 
-> I have a Java take-home task from SolDevelo. It's a FizzBuzz-style alert engine with 4 stages. Stage 3 requires extensibility without modifying the engine when new rules are added. Help me design a two-implementation approach: a simple baseline and a Strategy-pattern engine, keeping both small and reviewable.
+This task was treated as an exercise in **Spec-Driven Development (SDD)**: the specification was produced and locked before any implementation code was written. The AI tools played different roles at each stage.
 
-**Summary of response:**
+### Stage A — Event storming with GPT-5.5
 
-The AI suggested keeping `SimpleAlertEngine` as a baseline (plain `StringBuilder` loop, no special combined branch) and introducing a minimal `AlertRule` interface with a `StrategyAlertEngine` that iterates an ordered `List<AlertRule>`. It also suggested a `DivisibilityAlertRule` record as the concrete rule, a factory for rule sets, and an adapter to decouple list processing from the engine interface.
+Before writing a single line of Java, a short event storming session with GPT-5.5 was used to answer:
 
-**What I took from it:**
+- What are the core domain events? (*sensor reading received → alert label emitted*)
+- What stages should the implementation progress through?
+- Which architectural pattern fits extensibility better — a simple if-chain or a Strategy?
+- What are the meaningful edge cases (zero, negatives, combined labels)?
 
-The ordered-rule-list approach — concatenating matching labels in iteration order — cleanly handles both Stage 2 (no combined branch) and Stage 4 (WARN) without changing the engine. I used this structure directly.
+The output of this session was a set of decisions: four staged increments, two engine variants (simple baseline + strategy), a factory abstraction, and a list of edge cases worth testing.
 
-**Why it was useful:**
+### Stage B — PRD and constraint authoring (human)
 
-It gave me a concrete, minimal architecture that satisfies all four stages without over-engineering. The `AlertEngineProcessorAdapter` in particular was a suggestion I adopted because it keeps the `AlertEngine` interface focused on a single integer, not on list logic.
+From the event storming decisions, a Product Requirements Document was written in `.ai/spec/PRD.md`. It includes:
+
+- Functional requirements per stage with explicit input/output tables
+- Architecture diagram and package structure
+- A 16-commit plan using Conventional Commits
+- Docker multi-stage build requirements
+- CI requirements (push/PR triggers, workflow_dispatch, linter before tests)
+- Test strategy: 2–3 happy-path tests and 4–8 focused edge cases
+- Definition of Done checklist
+
+Four explicit constraints were also added to `CLAUDE.md` and `AGENTS.md`:
+1. Local workflow uses Docker only — no host Java or Gradle
+2. All commit messages follow Conventional Commits 1.0.0
+3. Every logical unit of behaviour must have focused JUnit 5 unit tests
+4. No code comments unless they serve a genuine documentation purpose
+
+### Stage C — Plan mode review with Claude Sonnet 4.6
+
+Claude Code was invoked in **plan mode**. The plan agent:
+
+- Explored the repository (existing workflows, gitignore, directory layout)
+- Asked three clarifying questions before writing any code: Gradle DSL (Kotlin vs Groovy), Dockerfile structure (one multi-stage file vs two separate files), and Java package name
+- Produced a blocking dependency graph showing which tasks had to precede which
+- Wrote a numbered commit sequence
+
+The plan was reviewed and approved before any implementation began.
+
+### Stage D — Implementation by Claude Sonnet 4.6
+
+After plan approval, Claude Code executed all commits in order: Stages 1–4, interfaces, adapter, factory, Dockerfile, CI, README, and this file. The implementation followed the PRD spec exactly — it was not a free-form generation.
+
+Later enhancement rounds added: Spotless linter (Palantir Java Format), PIT mutation testing workflow, Node 24 action upgrades, tricky edge-case tests, and the terminal I/O examples in this README.
+
+---
 
 ## 3. One AI suggestion I modified or rejected
 
-**What the AI suggested:**
+**What GPT-5.5 suggested:**
 
-The AI proposed making the rule sets configurable through an external YAML or properties file, so rules could be changed at runtime without recompiling.
+During event storming, GPT-5.5 proposed making the rule sets configurable through external YAML or JSON files loaded at startup, so rules could be changed without recompiling.
 
 **Why I rejected it:**
 
-The task is explicitly scoped to 2–6 hours and states "plain Java is fine — no frameworks required." Adding YAML parsing would require an external library (e.g., SnakeYAML), a configuration schema, and error handling for malformed files — none of which is justified for a take-home with four well-defined stages. I kept rule configuration in `RuleSetFactory` as plain Java, which is easier to review, test, and understand for the intended audience.
+The task is explicitly scoped to 2–6 hours with "plain Java, no frameworks required." Adding YAML parsing would require an external library, a configuration schema, and error handling for malformed files — none of which is justified for a four-stage take-home exercise. Rule configuration stayed as plain Java constants in `RuleSetFactory`, which is easier to review, test, and understand for the intended audience.

@@ -1,7 +1,6 @@
 package com.kotmin.soldevelo.alertrules.engine.strategy;
 
 import com.kotmin.soldevelo.alertrules.engine.AlertEngine;
-
 import java.util.List;
 
 public class StrategyAlertEngine implements AlertEngine {

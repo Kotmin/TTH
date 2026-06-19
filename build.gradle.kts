@@ -1,6 +1,8 @@
 plugins {
     java
     application
+    id("com.diffplug.spotless") version "6.25.0"
+    id("info.solidsoft.pitest") version "1.15.0"
 }
 
 group = "com.kotmin.soldevelo"
@@ -26,4 +28,18 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+spotless {
+    java {
+        palantirJavaFormat("2.28.0")
+        removeUnusedImports()
+    }
+}
+
+pitest {
+    junit5PluginVersion.set("1.2.1")
+    targetClasses.set(setOf("com.kotmin.soldevelo.alertrules.*"))
+    outputFormats.set(setOf("HTML"))
+    mutationThreshold.set(0)
 }

@@ -1,33 +1,31 @@
 package com.kotmin.soldevelo.alertrules.engine.strategy;
 
-import com.kotmin.soldevelo.alertrules.engine.simple.SimpleAlertEngine;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
+import com.kotmin.soldevelo.alertrules.engine.simple.SimpleAlertEngine;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class StrategyAlertEngineTest {
 
-    private static final List<AlertRule> BASE_RULES = List.of(
-            new DivisibilityAlertRule(3, "LOW"),
-            new DivisibilityAlertRule(5, "ADVISORY")
-    );
+    private static final List<AlertRule> BASE_RULES =
+            List.of(new DivisibilityAlertRule(3, "LOW"), new DivisibilityAlertRule(5, "ADVISORY"));
 
     private static final List<AlertRule> EXTENDED_RULES = List.of(
             new DivisibilityAlertRule(3, "LOW"),
             new DivisibilityAlertRule(5, "ADVISORY"),
-            new DivisibilityAlertRule(7, "WARN")
-    );
+            new DivisibilityAlertRule(7, "WARN"));
 
     @Test
     void simpleAndStrategyEnginesProduceSameBaseOutput() {
         var simple = new SimpleAlertEngine();
         var strategy = new StrategyAlertEngine(BASE_RULES);
-        List<String> simpleOut = IntStream.rangeClosed(1, 20).mapToObj(simple::evaluate).collect(Collectors.toList());
-        List<String> strategyOut = IntStream.rangeClosed(1, 20).mapToObj(strategy::evaluate).collect(Collectors.toList());
+        List<String> simpleOut =
+                IntStream.rangeClosed(1, 20).mapToObj(simple::evaluate).collect(Collectors.toList());
+        List<String> strategyOut =
+                IntStream.rangeClosed(1, 20).mapToObj(strategy::evaluate).collect(Collectors.toList());
         assertEquals(simpleOut, strategyOut);
     }
 
@@ -70,15 +68,43 @@ class StrategyAlertEngineTest {
 
     @Test
     void ruleOrderIsPreserved() {
-        var engine = new StrategyAlertEngine(List.of(
-                new DivisibilityAlertRule(7, "WARN"),
-                new DivisibilityAlertRule(3, "LOW")
-        ));
+        var engine = new StrategyAlertEngine(
+                List.of(new DivisibilityAlertRule(7, "WARN"), new DivisibilityAlertRule(3, "LOW")));
         assertEquals("WARNLOW", engine.evaluate(21));
     }
 
     @Test
     void divisibilityRuleRejectsZeroDivisor() {
         assertThrows(IllegalArgumentException.class, () -> new DivisibilityAlertRule(0, "INVALID"));
+    }
+
+    @Test
+    void nonObviousMultipleOf3And7YieldsLowWarn() {
+        var engine = new StrategyAlertEngine(EXTENDED_RULES);
+        assertEquals("LOWWARN", engine.evaluate(63));
+    }
+
+    @Test
+    void multipleOfAll3RulesThatIsNot105YieldsLowAdvisoryWarn() {
+        var engine = new StrategyAlertEngine(EXTENDED_RULES);
+        assertEquals("LOWADVISORYWARN", engine.evaluate(210));
+    }
+
+    @Test
+    void negativeMultipleOf3And7YieldsLowWarn() {
+        var engine = new StrategyAlertEngine(EXTENDED_RULES);
+        assertEquals("LOWWARN", engine.evaluate(-21));
+    }
+
+    @Test
+    void largePrimeReturnsItsStringValue() {
+        var engine = new StrategyAlertEngine(EXTENDED_RULES);
+        assertEquals(String.valueOf(Integer.MAX_VALUE), engine.evaluate(Integer.MAX_VALUE));
+    }
+
+    @Test
+    void largeValueDivisibleBy3And5YieldsLowAdvisory() {
+        var engine = new StrategyAlertEngine(EXTENDED_RULES);
+        assertEquals("LOWADVISORY", engine.evaluate(1_000_000_005));
     }
 }

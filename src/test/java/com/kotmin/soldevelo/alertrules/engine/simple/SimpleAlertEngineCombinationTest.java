@@ -1,8 +1,8 @@
 package com.kotmin.soldevelo.alertrules.engine.simple;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 class SimpleAlertEngineCombinationTest {
 
@@ -11,5 +11,15 @@ class SimpleAlertEngineCombinationTest {
     @Test
     void combinedLowAdvisoryEmergesFromConcatenation() {
         assertEquals("LOWADVISORY", engine.evaluate(15));
+    }
+
+    @Test
+    void negativeCombinedValueYieldsLowAdvisory() {
+        assertEquals("LOWADVISORY", engine.evaluate(-15));
+    }
+
+    @Test
+    void anotherMultipleOf3And5YieldsLowAdvisory() {
+        assertEquals("LOWADVISORY", engine.evaluate(30));
     }
 }
