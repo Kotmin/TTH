@@ -57,6 +57,8 @@ After plan approval, Claude Code executed all commits in order: Stages 1–4, in
 
 Later enhancement rounds added: Spotless linter (Palantir Java Format), PIT mutation testing workflow, Node 24 action upgrades, tricky edge-case tests, and the terminal I/O examples in this README.
 
+A subsequent refactoring session introduced the `AlertCondition + AlertEffect + AlertResult` model. This was proposed in plan mode: instead of each `AlertRule` returning a fixed label string, rules now describe an *effect* applied to a mutable `AlertResult` accumulator. The practical additions are `AlertEffect.removeLastCharacter()`, `AlertEffect.noOp()`, and composable `AlertCondition.and() / or() / not()` combinators — none of which fit the label-only model cleanly. The engine loop itself (`StrategyAlertEngine`) did not change at all, which is the intended property of this design: the engine is open for extension without modification. The `engine/strategy/` subpackage was removed and all types moved to `engine/` directly, since the strategy concept is now expressed by `ConditionalAlertRule` holding a condition and an effect rather than by a subpackage name.
+
 ---
 
 ## 3. One AI suggestion I modified or rejected
