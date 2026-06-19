@@ -1,0 +1,14 @@
+.git
+.github
+.idea
+.vscode
+.ai
+build/
+out/
+*.iml
+.DS_Store
+README.md
+AI_REFLECTION.md
+CLAUDE.md
+AGENTS.md
+docs/
