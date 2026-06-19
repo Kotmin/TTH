@@ -39,6 +39,7 @@ jobs:
           git config user.name "Kotmin"
           git config user.email "70173732+Kotmin@users.noreply.github.com"
           git pull --rebase origin "${BRANCH}"
+          rm -rf "docs/mutation/report_${DATE}_${SAFE_BRANCH}"
           cp -r /tmp/pitest-report "docs/mutation/report_${DATE}_${SAFE_BRANCH}"
           git add "docs/mutation/"
           git commit -m "docs(mutation): add PIT report ${DATE} ${SAFE_BRANCH}" || echo "nothing to commit"
