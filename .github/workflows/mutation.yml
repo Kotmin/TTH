@@ -35,12 +35,11 @@ jobs:
           BRANCH="${{ github.head_ref || github.ref_name }}"
           SAFE_BRANCH="${BRANCH//\//-}"
           DATE="$(date +%Y-%m-%d)"
-          cp -r build/reports/pitest "docs/mutation/report_${DATE}_${SAFE_BRANCH}"
+          cp -r build/reports/pitest /tmp/pitest-report
           git config user.name "Kotmin"
-          git config user.email "groovy.tech.cat@gmail.com"
-          git stash
+          git config user.email "70173732+Kotmin@users.noreply.github.com"
           git pull --rebase origin "${BRANCH}"
-          git stash pop || true
+          cp -r /tmp/pitest-report "docs/mutation/report_${DATE}_${SAFE_BRANCH}"
           git add "docs/mutation/"
           git commit -m "docs(mutation): add PIT report ${DATE} ${SAFE_BRANCH}" || echo "nothing to commit"
           git push origin HEAD:"${BRANCH}"
