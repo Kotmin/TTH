@@ -1,8 +1,9 @@
-package com.kotmin.soldevelo.alertrules.engine.strategy;
+package com.kotmin.soldevelo.alertrules.engine;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.kotmin.soldevelo.alertrules.engine.simple.SimpleAlertEngine;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -10,13 +11,14 @@ import org.junit.jupiter.api.Test;
 
 class StrategyAlertEngineTest {
 
-    private static final List<AlertRule> BASE_RULES =
-            List.of(new DivisibilityAlertRule(3, "LOW"), new DivisibilityAlertRule(5, "ADVISORY"));
+    private static final List<AlertRule> BASE_RULES = List.of(
+            new ConditionalAlertRule(AlertCondition.divisibleBy(3), AlertEffect.append("LOW")),
+            new ConditionalAlertRule(AlertCondition.divisibleBy(5), AlertEffect.append("ADVISORY")));
 
     private static final List<AlertRule> EXTENDED_RULES = List.of(
-            new DivisibilityAlertRule(3, "LOW"),
-            new DivisibilityAlertRule(5, "ADVISORY"),
-            new DivisibilityAlertRule(7, "WARN"));
+            new ConditionalAlertRule(AlertCondition.divisibleBy(3), AlertEffect.append("LOW")),
+            new ConditionalAlertRule(AlertCondition.divisibleBy(5), AlertEffect.append("ADVISORY")),
+            new ConditionalAlertRule(AlertCondition.divisibleBy(7), AlertEffect.append("WARN")));
 
     @Test
     void simpleAndStrategyEnginesProduceSameBaseOutput() {
@@ -68,14 +70,20 @@ class StrategyAlertEngineTest {
 
     @Test
     void ruleOrderIsPreserved() {
-        var engine = new StrategyAlertEngine(
-                List.of(new DivisibilityAlertRule(7, "WARN"), new DivisibilityAlertRule(3, "LOW")));
+        var engine = new StrategyAlertEngine(List.of(
+                new ConditionalAlertRule(AlertCondition.divisibleBy(7), AlertEffect.append("WARN")),
+                new ConditionalAlertRule(AlertCondition.divisibleBy(3), AlertEffect.append("LOW"))));
         assertEquals("WARNLOW", engine.evaluate(21));
     }
 
     @Test
-    void divisibilityRuleRejectsZeroDivisor() {
-        assertThrows(IllegalArgumentException.class, () -> new DivisibilityAlertRule(0, "INVALID"));
+    void conditionRejectsZeroDivisor() {
+        assertThrows(IllegalArgumentException.class, () -> AlertCondition.divisibleBy(0));
+    }
+
+    @Test
+    void strategyEngineRejectsNullRuleInList() {
+        assertThrows(NullPointerException.class, () -> new StrategyAlertEngine(Arrays.asList((AlertRule) null)));
     }
 
     @Test
