@@ -6,7 +6,7 @@ RUN chmod +x gradlew && ./gradlew dependencies --no-daemon -q
 
 FROM deps AS build
 COPY src/ src/
-RUN ./gradlew classes --no-daemon -q
+RUN ./gradlew installDist --no-daemon -q
 
 FROM build AS test
 RUN ./gradlew test --no-daemon
