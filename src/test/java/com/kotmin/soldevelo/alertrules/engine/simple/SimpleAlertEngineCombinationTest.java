@@ -12,4 +12,14 @@ class SimpleAlertEngineCombinationTest {
     void combinedLowAdvisoryEmergesFromConcatenation() {
         assertEquals("LOWADVISORY", engine.evaluate(15));
     }
+
+    @Test
+    void negativeCombinedValueYieldsLowAdvisory() {
+        assertEquals("LOWADVISORY", engine.evaluate(-15));
+    }
+
+    @Test
+    void anotherMultipleOf3And5YieldsLowAdvisory() {
+        assertEquals("LOWADVISORY", engine.evaluate(30));
+    }
 }

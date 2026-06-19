@@ -23,4 +23,15 @@ class AlertEngineProcessorAdapterTest {
     void emptyInputProducesEmptyOutput() {
         assertEquals(List.of(), adapter.process(List.of()));
     }
+
+    @Test
+    void adapterHandlesTrickyValuesInOrder() {
+        var extended = new AlertEngineProcessorAdapter(new StrategyAlertEngine(List.of(
+                new DivisibilityAlertRule(3, "LOW"),
+                new DivisibilityAlertRule(5, "ADVISORY"),
+                new DivisibilityAlertRule(7, "WARN"))));
+        List<Integer> input = List.of(-21, 63, 210, Integer.MAX_VALUE);
+        List<String> expected = List.of("LOWWARN", "LOWWARN", "LOWADVISORYWARN", String.valueOf(Integer.MAX_VALUE));
+        assertEquals(expected, extended.process(input));
+    }
 }
