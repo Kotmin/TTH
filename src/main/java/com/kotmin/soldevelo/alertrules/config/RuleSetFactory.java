@@ -1,9 +1,9 @@
 package com.kotmin.soldevelo.alertrules.config;
 
-import com.kotmin.soldevelo.alertrules.engine.AlertCondition;
-import com.kotmin.soldevelo.alertrules.engine.AlertEffect;
-import com.kotmin.soldevelo.alertrules.engine.AlertRule;
-import com.kotmin.soldevelo.alertrules.engine.ConditionalAlertRule;
+import com.kotmin.soldevelo.alertrules.engine.condition.AlertCondition;
+import com.kotmin.soldevelo.alertrules.engine.effect.AlertEffect;
+import com.kotmin.soldevelo.alertrules.engine.rule.AlertRule;
+import com.kotmin.soldevelo.alertrules.engine.rule.ConditionalAlertRule;
 import java.util.List;
 
 public class RuleSetFactory {

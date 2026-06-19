@@ -1,7 +1,10 @@
-package com.kotmin.soldevelo.alertrules.engine;
+package com.kotmin.soldevelo.alertrules.engine.rule;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.kotmin.soldevelo.alertrules.engine.condition.AlertCondition;
+import com.kotmin.soldevelo.alertrules.engine.effect.AlertEffect;
+import com.kotmin.soldevelo.alertrules.engine.effect.AlertResult;
 import org.junit.jupiter.api.Test;
 
 class ConditionalAlertRuleTest {
